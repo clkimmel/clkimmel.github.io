@@ -443,7 +443,7 @@ angular
   }])
    .factory('assets', ['$http', '$q', function($http, $q){
     var service = {getTables:getTables, getTypes:getTypes, getSites:getSites, checkAssetExists:checkAssetExists, submitAsset:submitAsset},
-      baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/verticalassets/FeatureServer';
+      baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/Vertical_Assets/FeatureServer';
     return service;
     function getTables(token){
       var deferred = $q.defer();
