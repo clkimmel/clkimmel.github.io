@@ -625,7 +625,7 @@ angular
     var service = {getTables:getTables, getTypes:getTypes, getSites:getSites, checkAssetExists:checkAssetExists, submitAsset:submitAsset},
       //baseUrl = 'https://maps.raleighnc.gov/arcgis/rest/services/PublicUtility/PuVerticalAssets/FeatureServer';
       //baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/puVerticalAssets/FeatureServer';
-      baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/vasset_testing/MapServer';
+      baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/Hosted/vassets_clone/FeatureServer';
     return service;
     function getTables(token){
       var deferred = $q.defer();
