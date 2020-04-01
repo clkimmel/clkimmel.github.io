@@ -38,27 +38,111 @@ angular
           }
           return tag;
         };
-        var getSites = function (token) {
+
+        var filtval = function (dropdown) {
+          var dups = [];
+          var uniqueval = dropdown.filter(function(el){
+            if (dups.indexOf(el.name) == -1){
+                dups.push(el.name);
+                return true;
+            }
+
+            return false;
+          })
+          return uniqueval;
+
+          };
+
+          var getSites = function (token) {
             assets.getSites(token).then(function (data) {
               $scope.sites = [];
               var siteNames = [];
               var bldgs = [];
+              var flrs = [];
+              var rmname= [];
+              var arrLength;
+              var arrflrLength;
+              var arrflrIdLength;
+
               angular.forEach(data.features, function (f) {
                 if (siteNames.indexOf(f.attributes.CAMPUS) === -1) {
-                  $scope.sites.push({name: f.attributes.CAMPUS, id: parseInt(f.attributes.OBJECTID), buildings:[{name: f.attributes.BUILDING, id: parseInt(f.attributes.OBJECTID)}], floors:[{name: f.attributes.FLOOR, id: parseInt(f.attributes.OBJECTID)}], floorids:[{name: f.attributes.FLOORID, id: parseInt(f.attributes.OBJECTID)}]})
+                  bldgs = [];
+                  flrs = [];
+                  rmname= [];
+                  $scope.sites.push({name: f.attributes.CAMPUS, id: parseInt(f.attributes.OBJECTID), buildings:[{name: f.attributes.BUILDING, id: parseInt(f.attributes.OBJECTID), bid: f.attributes.BUILDINGID ,floors:[{name: f.attributes.FLOOR, id: parseInt(f.attributes.OBJECTID),roomnames:[{name: f.attributes.ROOMNAME, id: parseInt(f.attributes.OBJECTID),roomid: f.attributes.ROOMID, floorid: f.attributes.FLOORID, roomtype:f.attributes.ROOMTYPE }] }] }]  })
+                  bldgs.push(f.attributes.BUILDING);
                   siteNames.push(f.attributes.CAMPUS);
+                  flrs.push(f.attributes.FLOOR);
+                  rmname.push(f.attributes.ROOMNAME);
                 } else {
                   var site = $scope.sites.filter(function (s) {
                     return s.name === f.attributes.CAMPUS;
                   });
                   if (site.length > 0) {
                     site = site[0];
-                    site.buildings.push({name: f.attributes.BUILDING, id: parseInt(f.attributes.OBJECTID)});
+
+                    if(bldgs.indexOf(f.attributes.BUILDING) === -1){
+                      flrs = [];
+                      rmname= [];
+                      site.buildings.push({name: f.attributes.BUILDING, id: parseInt(f.attributes.OBJECTID), bid: f.attributes.BUILDINGID ,floors:[{name: f.attributes.FLOOR, id: parseInt(f.attributes.OBJECTID),roomnames:[{name: f.attributes.ROOMNAME, id: parseInt(f.attributes.OBJECTID),roomid: f.attributes.ROOMID, floorid: f.attributes.FLOORID, roomtype:f.attributes.ROOMTYPE }] }] });
+                      bldgs.push(f.attributes.BUILDING);
+                      flrs.push(f.attributes.FLOOR);
+                      rmname.push(f.attributes.ROOMNAME);
+                      arrLength = 0;
+                    } else{
+                        var bldg = $scope.sites.filter(function (s) {
+                        arrLength = (s.buildings.length - 1);
+                        return s.buildings[arrLength].name === f.attributes.BUILDING;
+                      });
+                        if (bldg.length > 0) {
+
+                          bldg = bldg[0];
+                          if(flrs.indexOf(f.attributes.FLOOR) === -1){
+                            rmname= [];
+                            site.buildings[arrLength].floors.push({name: f.attributes.FLOOR, id: parseInt(f.attributes.OBJECTID),roomnames:[{name: f.attributes.ROOMNAME, id: parseInt(f.attributes.OBJECTID),roomid: f.attributes.ROOMID, floorid: f.attributes.FLOORID, roomtype:f.attributes.ROOMTYPE }] });
+                            flrs.push(f.attributes.FLOOR);
+                            rmname.push(f.attributes.ROOMNAME);
+                          }else {
+                             var bldg_flr = $scope.sites.filter(function (t) {
+                              arrflrLength = (t.buildings[arrLength].floors.length - 1);
+                             return t.buildings[arrLength].floors[arrflrLength].name === f.attributes.FLOOR;
+                          });
+                          if (bldg_flr.length >0){
+                            bldg_flr = bldg_flr[0];
+                            if(rmname.indexOf(f.attributes.ROOMNAME) === -1){
+                              site.buildings[arrLength].floors[arrflrLength].roomnames.push({name: f.attributes.ROOMNAME, id: parseInt(f.attributes.OBJECTID),roomid: f.attributes.ROOMID, floorid: f.attributes.FLOORID, roomtype:f.attributes.ROOMTYPE });
+                              rmname.push(f.attributes.ROOMNAME);
+                            }else{
+
+                              var flr_roomname = $scope.sites.filter(function (t) {
+                                arrflrIdLength = (t.buildings[arrLength].floors[arrflrLength].roomnames.length - 1);
+                                return t.buildings[arrLength].floors[arrflrLength].roomnames[arrflrIdLength].name === f.attributes.ROOMNAME;
+                              });
+                              if (flr_roomname.length >0){
+                                flr_roomname = flr_roomname[0];
+
+
+                              }
+
+                            }
+
+
+                          }
+
+                        }
+
+
+                    }}
+
                   }
                 }
               });
+            //  console.log($scope.sites)
             });
+
         };
+
+
         var getTypes = function (token, id) {
             $scope.toggleGrayout(true);
              assets.getTypes($scope.token, id).then(function (data, a, b) {
@@ -123,10 +207,50 @@ angular
           var site = $scope.sites.filter(function (s) {
             return s.name === attributes['CAMPUS'];
           });
+
+
           if (site.length > 0) {
             site = site[0];
             $scope.site = site;
             $scope.buildings = site.buildings;
+
+            var bldg = $scope.buildings.filter(function (b) {
+              return b.name === attributes['BUILDING'];
+            });
+            if (bldg.length > 0) {
+              bldg = bldg[0];
+
+              $scope.building = bldg;
+              $scope.floors = bldg.floors;
+
+              var flr = $scope.floors.filter(function (b){
+                return b.name === attributes['FLOOR'];
+              });
+              if (flr.length > 0) {
+                flr = flr[0];
+                $scope.floor = flr;
+                $scope.roomnames = flr.roomnames;
+
+                var roomnm = $scope.roomnames.filter(function(b){
+                  return b.name === attributes['ROOMNAME'];
+
+                });
+                if (roomnm.length > 0){
+                  roomnm = roomnm[0];
+                  $scope.roomnm = roomnm;
+
+
+                }
+
+
+
+              }
+
+
+            }
+
+
+
           }
           var type = $scope.types.filter(function (t) {
             return t.id === attributes['ASSET_TYPE_SUBTYPE'];
@@ -141,15 +265,16 @@ angular
                   f.value = site;
                 break;
                 case 'BUILDING':
-                  var bldg = $scope.buildings.filter(function (b) {
-                    return b.name === attributes['BUILDING'];
-                  });
-                  if (bldg.length > 0) {
-                    bldg = bldg[0];
-                    f.value = bldg;
-                    $scope.building = bldg;
-                  }
+                  f.value = bldg;
                 break;
+                case 'FLOOR':
+                    f.value = flr;
+                break;
+
+                case 'ROOMNAME':
+                  f.value = roomnm;
+                break;
+
                 default:
                   f.value = attributes[f.name];
 
@@ -246,57 +371,82 @@ angular
         };
         $scope.siteSelected = function () {
           var flds = $scope.fields.filter(function (f) {
-            return f.name === 'CAMPUS' || f.name === 'BUILDING' || f.name === 'FLOOR' || f.name === 'FLOORID';
+            return f.name === 'CAMPUS' || f.name === 'BUILDING' || f.name === 'FLOOR' || f.name === 'ROOMNAME';
           });
           if (flds.length > 0) {
             angular.forEach(flds, function (f) {
               if (f.name === 'CAMPUS') {
                 $scope.site = f.value;
                 ga('send', 'event', 'Site', 'Site Selected', $scope.site.name);
-                $scope.buildings = f.value.buildings;
-                $scope.floors = f.value.floors;
-                $scope.floorids = f.value.floorids;
+                $scope.buildings = filtval(f.value.buildings);
+                $scope.buildings.floors = filtval(f.value.buildings[0].floors);
+               // $scope.floorids = filtval(f.value.buildings[0].floors[0].floorids) ;
 
               } else if (f.name === 'BUILDING') {
                 f.value = undefined;
               } else if (f.name === 'FLOOR') {
                 f.value = undefined;
-              } else if (f.name === 'FLOORID') {
+              } else if (f.name === 'ROOMNAME') {
                 f.value = undefined;
               }
             });
           }
         };
         $scope.bldgSelected = function () {
-          var f = $scope.fields.filter(function (f) {
-            return f.name === 'BUILDING';
+          var flds = $scope.fields.filter(function (f) {
+            return f.name === 'BUILDING' || f.name === 'FLOOR' || f.name === 'ROOMNAME';
           });
-          if (f.length > 0) {
-            f = f[0];
-            $scope.building = f.value;
+          if (flds.length > 0) {
+            angular.forEach(flds, function (f) {
+              if (f.name === 'BUILDING') {
+                //f = f[0];
+                $scope.building= f.value;
+                $scope.floors = filtval(f.value.floors);
+
+              } else if (f.name === 'FLOOR') {
+                f.value = undefined;
+              } else if (f.name === 'ROOMNAME') {
+                f.value = undefined;
+              }
+
+            });
+
+
+
             ga('send', 'event', 'Building', 'Building Selected', $scope.building.name);
           }
         };
 
         $scope.floorSelected = function () {
-          var f = $scope.fields.filter(function (f) {
-            return f.name === 'FLOOR';
+          var flds = $scope.fields.filter(function (f) {
+            return f.name === 'FLOOR' || f.name === 'ROOMNAME';
           });
-          if (f.length > 0) {
-            f = f[0];
-            $scope.floor = f.value;
-            ga('send', 'event', 'Building', 'Building Selected', $scope.floor.name);
+          if (flds.length > 0) {
+            angular.forEach(flds, function (f) {
+              if (f.name === 'FLOOR') {
+               // f = f[0];
+                $scope.floor = f.value;
+                $scope.roomnames = filtval(f.value.roomnames) ;
+              }else if (f.name === 'ROOMNAME') {
+                f.value = undefined;
+              }
+
+
+            });
+
+
           }
         };
 
-        $scope.floorIdSelected = function () {
+        $scope.roomnmSelected = function () {
           var f = $scope.fields.filter(function (f) {
-            return f.name === 'FLOORID';
+            return f.name === 'ROOMNAME';
           });
           if (f.length > 0) {
             f = f[0];
-            $scope.floorid = f.value;
-            ga('send', 'event', 'Building', 'Building Selected', $scope.floorid.name);
+            $scope.roomnm = f.value;
+          //  $scope.roomnames = filtval(f.value.roomnames) ;
+           // ga('send', 'event', 'Building', 'Building Selected', $scope.floorid.name);
           }
         };
 
@@ -363,6 +513,7 @@ angular
           var feature = {attributes: {}};
           $scope.processing = true;
           angular.forEach($scope.fields, function (f) {
+
               switch (f.name) {
                 case 'ASSET_TYPE_SUBTYPE':
                   feature.attributes[f.name] = $scope.type.id;
@@ -377,19 +528,30 @@ angular
                 case 'FLOOR':
                   feature.attributes[f.name] = $scope.floor.name;
                 break;
+                case 'ROOMNAME':
+                  feature.attributes[f.name] = $scope.roomnm.name;
+                break;
 
                 case 'FLOORID':
-                  feature.attributes[f.name] = $scope.floorid.name;
+                  feature.attributes[f.name] = $scope.roomnm.floorid;
+                break;
+
+                case 'ROOMID':
+                  feature.attributes[f.name] = $scope.roomnm.roomid;
+                break;
+                case 'ROOMTYPE':
+                  feature.attributes[f.name] = $scope.roomnm.roomtype;
                 break;
 
                 case 'BUILDING':
                   feature.attributes[f.name] = $scope.building.name;
                 break;
-                case 'BUILDINGID':
-                  feature.attributes[f.name] = $scope.building.id;
+                 case 'BUILDINGID':
+                  feature.attributes[f.name] = $scope.building.bid;
                 break;
                 case 'FACILITYID':
-                  feature.attributes[f.name] = $scope.facilityid;
+                    feature.attributes[f.name] = $scope.facilityid;
+
                 break;
                 case 'LOCATION_TYPE':
                   feature.attributes[f.name] = $scope.building.assetType;
@@ -420,12 +582,18 @@ angular
                   }
                 break;
               }
+
           });
           if ($scope.oid) {
             feature.attributes.OBJECTID = $scope.oid;
           }
           $scope.feature = feature;
-          submitAsset($scope.token, feature, $scope.table.id, $scope.oid);
+          if (typeof (feature.attributes.FACILITYID) !== "undefined"){
+            submitAsset($scope.token, feature, $scope.table.id, $scope.oid);
+          }else {
+            showMessage("danger", "Error submitting assets, Facility ID cannot be empty");
+          }
+
         };
       },
       link: function (scope, element, attrs, loginFormCtrl) {
@@ -440,11 +608,23 @@ angular
         });
       }
     }
-  }])
+  }
+
+
+
+
+
+
+
+
+
+])
+
+
    .factory('assets', ['$http', '$q', function($http, $q){
     var service = {getTables:getTables, getTypes:getTypes, getSites:getSites, checkAssetExists:checkAssetExists, submitAsset:submitAsset},
-      //baseUrl = 'https://maps.raleighnc.gov/arcgis/rest/services/PublicUtility/PuVerticalAssets/FeatureServer';
-      baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/puVerticalAssets/FeatureServer';
+      baseUrl = 'https://maps.raleighnc.gov/arcgis/rest/services/PublicUtility/PuVerticalAssets/FeatureServer';
+      //baseUrl = 'https://mapstest.raleighnc.gov/arcgis/rest/services/PublicUtility/puVerticalAssets/FeatureServer';
     return service;
     function getTables(token){
       var deferred = $q.defer();
@@ -503,7 +683,7 @@ angular
         data: $.param(
           {
             token: token,
-            where: "ROOMID = '" + id + "'",
+            where: "FACILITYID = '" + id + "'",
             returnGeometry: false,
             outFields: '*',
             f: 'json'
@@ -528,4 +708,8 @@ angular
       .error(deferred.resolve);
       return deferred.promise;
     }
-  }]);
+  }
+
+
+
+]);
