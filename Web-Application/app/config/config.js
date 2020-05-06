@@ -36,13 +36,14 @@ define(function() {
 
 
         //NAME FOR INTERIOR SPACES/ROOMS(TO IDENTIFY SPACES LAYER IN A GROUP LAYER)
-        spaceLayerStringIdentifier: "Places + Things",
+        spaceLayerStringIdentifier: "UNIT_NAME",
 
         //FLOORPICKER
         floorPickerInfo: {
-            1 :  {  buttonLabel: "1", value: "1"},
-            2 :  {  buttonLabel: "2", value: "2"},
-            3 :  {  buttonLabel: "3", value: "3"}
+            1 :  {  buttonLabel: "-2", value: "B2 Basment"},
+            2 :  {  buttonLabel: "-1", value: "B1 Basment"},
+            3 :  {  buttonLabel: "1", value: "1st Floor"},
+			4 :  {  buttonLabel: "2", value: "2nd Floor"}
         },
 
         //HERE, LAYER NAME IS THE NAME OF LAYER AS SEEN IN TOC OF SCENE VIEWER
@@ -66,7 +67,7 @@ define(function() {
                     name: "Units",
                     dropdownSearch: {
                         placeholder: "Search for units",
-                        queryUrl: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/6",
+                        queryUrl: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/3",
                         queryFields: ["SITE", "UNIT_NAME"],
                         suggestionTemplate: "{UNIT_NAME} ({USE_TYPE})"
                     },
