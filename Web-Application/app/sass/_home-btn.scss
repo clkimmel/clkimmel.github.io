@@ -1,0 +1,14 @@
+// HOME BUTTON //
+// includes overrides to the Esri zoom widget
+
+.esri-home {
+    position: absolute;
+    top: 125px;
+    left: -35px;
+    box-shadow: none;
+    border-top: solid 1px rgba(50,50,50,0.2);
+}
+
+.esri-zoom .esri-widget-button:last-child {
+    margin-top: 32px;
+}

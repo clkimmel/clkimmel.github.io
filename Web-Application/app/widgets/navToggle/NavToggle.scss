@@ -1,0 +1,36 @@
+// NAV TOGGLE //
+
+.nav-toggle {
+    position: absolute;
+    //top: 200px;
+    //left: -35px;
+    height: 64px;
+    width: 32px;
+
+    & + .tooltip .tooltip-inner {
+        width: 350px;
+        /* If max-width does not work, try using width instead */
+        //width: 350px;
+    }
+
+    &.is-routing {
+        //top: 200px;
+        //left: -35px;
+
+        & ~ .esri-navigation-toggle {
+            //top: 200px;
+            //left: -35px;
+        }
+    }
+
+}
+
+// NAVAGATION TOGGLE //
+// overrides
+
+.esri-navigation-toggle {
+    position: absolute;
+    top: 200px;
+    left: -35px;
+    transition: all ease-in-out 0.3s;
+}

@@ -1,0 +1,33 @@
+#campussearch {
+      position: absolute;
+      z-index: 20;
+      top: 20px;
+      left: 74px;
+}
+
+#searchWrapperDiv{
+      position: absolute;
+      z-index: 20;
+      top: 60px;
+      left: 74px;
+}
+
+.esri-ui-top-left {
+    top: 49px;
+    left: 0;
+}
+
+// sibling class to .js-left-panel-move
+.map-overlay-top-left {
+
+  .esri-search {
+      position: absolute;
+      top: 6px;
+      left: 16px;
+
+      &.is-hidden {
+        display: none;
+      }
+  }
+
+}

@@ -1,0 +1,19 @@
+.side-panel {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    z-index: 0;
+}
+
+@media all and (max-width: 400px) and (min-height: 525px + 1) {
+
+}
+
+@media all and (max-height: 525px),
+all and (max-width: 500px) {
+
+}
