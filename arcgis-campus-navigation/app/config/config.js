@@ -25,10 +25,10 @@ define(function() {
         },
 
         //PORTAL URL
-        portalUrl: '//www.arcgis.com',
+        portalUrl: '//mapstest.raleighnc.gov/portal/',
 
         //WEB SCENE ID
-        webSceneId:  "7bf6c0f430ba4f518489aaa5e750746d",
+        webSceneId:  "797eff6944ce48fd81af3348d0b56280",
 
         // PROXY
         // proxyUrlPrefix: "",
