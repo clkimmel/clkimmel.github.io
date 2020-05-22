@@ -25,10 +25,10 @@ define(function() {
         },
 
         //PORTAL URL
-        portalUrl: 'https://indoorspoc.raleighnc.gov/portal/',
+        portalUrl: '//www.arcgis.com',
 
         //WEB SCENE ID
-        webSceneId:  "573c9e402aea4e54ace7a376e86364ba",
+        webSceneId:  "7bf6c0f430ba4f518489aaa5e750746d",
 
         // PROXY
         // proxyUrlPrefix: "",
@@ -36,27 +36,26 @@ define(function() {
 
 
         //NAME FOR INTERIOR SPACES/ROOMS(TO IDENTIFY SPACES LAYER IN A GROUP LAYER)
-        spaceLayerStringIdentifier: "UNIT_NAME",
+        spaceLayerStringIdentifier: "BuildingInteriorSpace White",
 
         //FLOORPICKER
         floorPickerInfo: {
-            1 :  {  buttonLabel: "-2", value: "B2 Basment"},
-            2 :  {  buttonLabel: "-1", value: "B1 Basment"},
-            3 :  {  buttonLabel: "1", value: "1st Floor"},
-			4 :  {  buttonLabel: "2", value: "2nd Floor"}
+            1 :  {  buttonLabel: "1", value: "1"},
+            2 :  {  buttonLabel: "2", value: "2"},
+            3 :  {  buttonLabel: "3", value: "3"}
         },
 
         //HERE, LAYER NAME IS THE NAME OF LAYER AS SEEN IN TOC OF SCENE VIEWER
         floorsLayers: {
           "all": [
-                { layerName: "Floorplan Doors", floorNumberFld: "LEVEL_NAME", floorIDFld: "LEVEL_ID"},
-                { layerName: "Floorplan Walls", floorNumberFld: "LEVEL_NAME", floorIDFld: "LEVEL_ID"},
-                { layerName: "Places + Things", floorNumberFld: "LEVEL_NAME", floorIDFld: "LEVEL_ID"}
+                { layerName: "BuildingFloorplanLine Doors", floorNumberFld: "FLOOR", floorIDFld: "FLOORID"},
+                { layerName: "BuildingFloorplanLine Walls", floorNumberFld: "FLOOR", floorIDFld: "FLOORID"},
+                { layerName: "BuildingInteriorSpace White", floorNumberFld: "FLOOR", floorIDFld: "FLOORKEY"}
               ]
         },
 
         // FIELD SPECIFYING FLOOR NUMBER
-        floorField: "LEVEL_NAME",
+        floorField: "FLOOR",
 
         // DEFAULT PLACEHOLDER FOR SEARCH WIDGET
         allSearchPlaceholder: "Find people or places",
@@ -64,41 +63,41 @@ define(function() {
         //SEARCH INFO
         searchInfo: {
             1 :  {
-                    name: "Units",
+                    name: "Rooms",
                     dropdownSearch: {
-                        placeholder: "Search for units",
-                        queryUrl: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/3",
-                        queryFields: ["SITE", "UNIT_NAME"],
-                        suggestionTemplate: "{UNIT_NAME} ({USE_TYPE})"
+                        placeholder: "Search for rooms",
+                        queryUrl: "http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Building_Interior_Space_Point_2017F/FeatureServer/0",
+                        queryFields: ["LOCATION", "LONGNAME"],
+                        suggestionTemplate: "{LONGNAME} ({SPACETYPE})"
                     },
-                    outFields:["OBJECTID", "UNIT_NAME", "NAME", "LEVEL_NAME", "SITE", "FACILITY_NAME", "USE_TYPE", "LEVEL_ID" ],
+                    outFields:["OBJECTID", "LONGNAME", "SHORTNAME", "FLOOR", "LOCATION", "BUILDING", "SPACETYPE", "FLOORKEY" ],
 
                     // associated info (Instead of Related Tables)
                     associatedInfo: {
-                      //url: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/29",
-                      url: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/29",
-                      outFields:["FACILITYID", "ASSET_TYPE", "MAKE"],
-                      queryField: "FACILITYID",      // for this layer query
+                      //url: "http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/ArcGIS/rest/services/EmployeeInfoPt_2017F/FeatureServer/0",
+                      url: "https://services2.arcgis.com/z2tnIkrLQ2BRzr6P/ArcGIS/rest/services/EmployeeInfoPt_noZ_2017F/FeatureServer/0",
+                      outFields:["KNOWN_AS_N", "EMAIL", "EXTENSION"],
+                      queryField: "LOCATION",      // for this layer query
                       queryFieldType: "TEXT" ,    //or number
-                      matchingQueryField: "SITE_ID",    // for the dropdownSearch layer
+                      matchingQueryField: "LOCATION",    // for the dropdownSearch layer
                     },
 
                     // INFO DISPLAYED IN SIDE PANEL
                     displayInfo: {
-                        USE_TYPE: {class:"sp-info__subtitle", prefix:"", suffix:"" },
-                        UNIT_NAME: {class:"sp-info__office" },
-                        FACILITYID: {class: "sp-info__name"},
-                        ASSET_TYPE: {class:"sp-info__email" },
-                        MAKE: {class:"sp-info__desc", prefix:"ext. ", suffix:"" }
+                        SPACETYPE: {class:"sp-info__subtitle", prefix:"", suffix:"" },
+                        LONGNAME: {class:"sp-info__office" },
+                        KNOWN_AS_N: {class: "sp-info__name"},
+                        EMAIL: {class:"sp-info__email" },
+                        EXTENSION: {class:"sp-info__desc", prefix:"ext. ", suffix:"" }
                     },
 
                     // TEXT TO IDENTIFY CORRESPONDING SCENE LAYERS
-                    correspondingSceneLyrName: "Places + Things",
+                    correspondingSceneLyrName: "BuildingInteriorSpace White",
 
                     // SYMBOLOGY FOR SELECTED SPACE/ROOM
                     selectionRendering: {
                         // this field is used to get label info
-                        rendererField: "UNIT_NAME",
+                        rendererField: "LONGNAME",
 
                         color: [231, 76, 60],
                         symbol: "\ue61d", //esri-icon-map-pin https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/index.html
@@ -120,41 +119,41 @@ define(function() {
                 },
 
             2 :  {
-                    name: "Vertical Asset Electrical;",
+                    name: "People",
                     dropdownSearch: {
                         placeholder: "Search for people",
-                        //queryUrl: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/29",
-                        queryUrl: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/29",
-                        queryFields: ["SITE", "FACILITYID"],
-                        suggestionTemplate: "{FACILITYID} ({SITE_ID})"
+                        //queryUrl: "http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/ArcGIS/rest/services/EmployeeInfoPt_2017F/FeatureServer/0",
+                        queryUrl: "https://services2.arcgis.com/z2tnIkrLQ2BRzr6P/ArcGIS/rest/services/EmployeeInfoPt_noZ_2017F/FeatureServer/0",
+                        queryFields: ["LOCATION", "KNOWN_AS_N"],
+                        suggestionTemplate: "{KNOWN_AS_N} ({LOCATION})"
                     },
-                    outFields:["OBJECTID", "SITE_ID", "FACILITY_NAME", "FACILITY_ID", "ASSET_TYPE", "MAKE" ],
+                    outFields:["OBJECTID", "LOCATION", "BUILDING", "KNOWN_AS_N", "EMAIL", "EXTENSION" ],
 
                     // associated info (Instead of Related Tables)
                     associatedInfo: {
-                      url: "https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/29",
-                      outFields:["UNIT_NAME", "UNIT_ID", "LEVEL_NAME", "USE_TYPE", "LEVEL_ID"],
-                      queryField: "FACILITYID",      // for this layer
+                      url: "http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Building_Interior_Space_Point_2017F/FeatureServer/0",
+                      outFields:["LONGNAME", "SHORTNAME", "FLOOR", "SPACETYPE", "FLOORKEY"],
+                      queryField: "LOCATION",      // for this layer
                       queryFieldType: "TEXT" ,    //or number
-                      matchingQueryField: "FACILITYID",    // for the dropdownSearch layer
+                      matchingQueryField: "LOCATION",    // for the dropdownSearch layer
                     },
 
                     // INFO DISPLAYED IN SIDE PANEL
                     displayInfo: {
-                        USE_TYPE: {class:"sp-info__subtitle", prefix:"", suffix:"" },
-                        UNIT_NAME: {class:"sp-info__office" },
-                        FACILITYID: {class: "sp-info__name"},
-                        ASSET_TYPE: {class:"sp-info__email" },
-                        MAKE: {class:"sp-info__desc", prefix:"ext. ", suffix:"" }
+                        SPACETYPE: {class:"sp-info__subtitle", prefix:"", suffix:"" },
+                        LONGNAME: {class:"sp-info__office" },
+                        KNOWN_AS_N: {class: "sp-info__name"},
+                        EMAIL: {class:"sp-info__email" },
+                        EXTENSION: {class:"sp-info__desc", prefix:"ext. ", suffix:"" }
                     },
 
                     // TEXT TO IDENTIFY CORRESPONDING SCENE LAYERS
-                    correspondingSceneLyrName: "Places + Things",
+                    correspondingSceneLyrName: "BuildingInteriorSpace White",
 
                     // SYMBOLOGY FOR SELECTED SPACE/ROOM
                     selectionRendering: {
                         // this field is used to get label info
-                        rendererField: "UNIT_NAME",
+                        rendererField: "LONGNAME",
 
                         color: [231, 76, 60],
                         symbol: "\ue61d", //esri-icon-map-pin https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/index.html
@@ -195,7 +194,7 @@ define(function() {
 
         routing: {
           filterFld: "FLOORKEY",
-          taskUrl: 'https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_Network/NAServer',
+          taskUrl: 'http://3dcampus.arcgis.com/arcgis/rest/services/Routing/RedlandsNetwork1m2017/NAServer/Route',
           restrictions: {
               stairs: 'Prohibit: Elevators',
               elevator: 'Prohibit: Stairs'
@@ -247,8 +246,8 @@ define(function() {
         // fieldname is required - rendering field in Spaces layer may be different from the url rendering field
         // slide name : [url, fieldname]
         spaceRenderersForWebSlide: {
-            'Interior': ['https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/6',"UNIT_ID"],
-            'Vacancy': ['https://arcindpocappwv1.ci.raleigh.nc.us/arcgis/rest/services/Raleigh_Water_Indoors_GISTST_FS/FeatureServer/6',"UNIT_ID"]
+            'Interior': ['http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Building_Interior_Spaces_Color_2017F/FeatureServer/0',"SPACEID"],
+            'Vacancy': ['http://services2.arcgis.com/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Building_Interior_Spaces_Vacancy_2017F/FeatureServer/0',"SPACEID"]
         }
 
     };
