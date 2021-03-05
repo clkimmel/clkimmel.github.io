@@ -1,0 +1,138 @@
+<div class="side-panel">
+
+    <!-- Close Panel Button -->
+    <div class="sp-close js-left-panel-close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="sp-close__icon"><path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/></svg>
+    </div>
+
+    <!-- Initial Info Card -->
+    <div class="sp-info js-card-info is-hidden">
+        <h1 class="sp-info__title">
+            Welcome!
+        </h1>
+        <h4 class="sp-info__subhead">
+            Visualize your campus in 3D!
+        </h4>
+        <div class="sp-divider"></div>
+        <p class="sp-info__desc">
+            To navigate the 3D View, use the Navigation Toggle.
+        </p>
+        <p class="sp-info__img">
+            <img src="app/images/navigation-toggle-horizontal.png" alt="Navigation Toggle" />
+        </p>
+        <p class="sp-info__desc">
+            Alternatively, you can click and hold the <b>Left or Right Mouse Button</b> to Move or Rotate!
+        </p>
+        <p class="sp-info__img">
+            <img class="sp-info__img--sm" src="app/images/mouse-right-click-icon.png" alt="Mouse Right Click" />
+        </p>
+        <div class="sp-divider"></div>
+        <p class="sp-info__desc">
+            Change the 3D Scene View with the View Select button.
+        </p>
+        <p class="sp-info__img">
+            <img class="sp-info__img--sm" src="app/images/view-select.png" alt="Mouse Right Click" />
+        </p>
+    </div>
+
+    <!-- Route Card -->
+    <div  data-dojo-attach-point="routeCardNode" class="sp-info js-card-route is-hidden">
+        <h1 class="sp-info__title">
+            <i class="fa fa-location-arrow"></i>
+            Route
+        </h1>
+
+
+        <div class="sp-route__search-wrap">
+            <span class="sp-route__search-icon">
+                <span class="esri-icon-radio-checked"></span>
+            </span>
+            <div id="fromSearch" data-dojo-attach-point="route_FromNameNode"></div>
+        </div>
+
+        <div class="sp-swap-btn" title="Swap Start and End Locations">
+            <!-- <i class="fa fa-refresh"></i> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="sp-swap__icon"><path d="M10 19.41l4-4V20l-6 6-6-6v-4.59l4 4V6h4v13.41zM24 6l-6 7.41V18l4-5.41V26h4V12.59L30 18v-4.59L24 6z"/></svg>
+        </div>
+
+        <div class="sp-route__search-wrap sp-route__search-wrap--to">
+            <span class="sp-route__search-icon sp-route__search-icon--to">
+                <span class="esri-icon-map-pin"></span>
+            </span>
+            <div id="toSearch" data-dojo-attach-point="route_ToNameNode"></div>
+        </div>
+
+        <div class="spinner-wave js-route-loading is-hidden">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <button type="button" class="btn btn-primary sp-btn sp-btn--route is-hidden js-route-toggle">
+            Need an Elevator?
+        </button>
+
+        <p class="sp-route__identical-loc js-route-identical is-hidden">
+            Identical Location!
+        </p>
+
+        <div class="sp-route__measure-wrap js-route-measures is-hidden">
+            <div class="sp-route__measure-group">
+                <span class="sp-route__measure-title">Time</span>
+                <span class="sp-route__measure-item" data-dojo-attach-point="route_Time"></span>
+            </div>
+
+            <div class="sp-route__measure-group">
+                <span class="sp-route__measure-title">Distance</span>
+                <span class="sp-route__measure-item"  data-dojo-attach-point="route_Distance"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Office Card -->
+    <div data-dojo-attach-point="officeCardNode" class="sp-info js-card-office is-hidden">
+        <h4 class="" data-dojo-attach-point="officeCardField1">
+            <i class="fa fa-laptop"></i>
+        </h4>
+        <h2 class="" data-dojo-attach-point="officeCardField2"></h2>
+        <h1 class="" data-dojo-attach-point="officeCardField3"></h1>
+        <a class="" data-dojo-attach-point="officeCardField4"></a>
+        <p class="" data-dojo-attach-point="officeCardField5"></p>
+
+        <button type="button" class="btn btn-primary sp-btn sp-route-from-btn is-hidden" data-dojo-attach-point='_routeFromBtn' data-dojo-attach-event='onclick: _routeFromBtnClick'>
+            <span class="esri-icon-radio-checked"></span>
+            Route From here
+        </button>
+
+        <button type="button" class="btn btn-primary sp-btn sp-route-to-btn is-hidden" data-dojo-attach-point='_routeToBtn' data-dojo-attach-event='onclick: _routeToBtnClick'>
+            <span class="esri-icon-map-pin"></span>
+            Route To here
+        </button>
+
+        <!-- <button type="button" class="btn btn-primary sp-btn" data-dojo-attach-point='office_myOfficeBtn' data-dojo-attach-event='onclick: _onMyOfficeBtnClick'>
+            <i class="fa fa-star-o"></i>
+            My Office
+        </button> -->
+    </div>
+
+    <!-- Multiple Employee Info Card -->
+    <div data-dojo-attach-point="multipleResultsCardNode" class="sp-info js-card-multiple is-hidden">
+        <h2 class="sp-info__title">
+            Select Employee..
+        </h2>
+
+        <div class="sp-multiple-list" data-dojo-attach-point="multipleRadioNode"> </div>
+
+        <button type="button" class="btn btn-primary sp-btn sp-route-to-btn is-hidden" data-dojo-attach-point='_selectFromMultipleResults'>
+            Select
+        </button>
+
+    </div>
+
+    <!-- Slides Card -->
+    <div class="sp-info js-card-slides is-hidden" data-dojo-attach-point="slidesCardNode"></div>
+
+</div>
