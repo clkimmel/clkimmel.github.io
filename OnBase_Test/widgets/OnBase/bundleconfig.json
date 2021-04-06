@@ -1,0 +1,35 @@
+[
+  {
+    "outputFileName": "./OBVersionAgent.min.js",
+    "inputFiles": [
+      "../../Asp.Net/Hyland.Integrations.GIS.WebControls/Scripts/API/OBVersionAgent.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "./OB_WebAPI.min.js",
+    "inputFiles": [
+      "../../Asp.Net/Hyland.Integrations.GIS.WebControls/Scripts/API/OB_WebAPI.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "./OBWidgetViewModel.min.js",
+    "inputFiles": [
+      "../../Asp.Net/Hyland.Integrations.GIS.WebControls/Scripts/API/OBWidgetViewModel.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

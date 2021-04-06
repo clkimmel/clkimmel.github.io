@@ -1,0 +1,17 @@
+{
+  "obServiceUrl": "https://raleighncUT1.hylandcloud.com/203GIS/",
+  "portalWidgetUrl": "",
+  "width": 500,
+  "highlightColor": "98, 194, 204",
+  "highlightColorR": 98,
+  "highlightColorG": 194,
+  "highlightColorB": 204,
+  "fillColor": "98, 194, 204",
+  "fillColorR": 98,
+  "fillColorG": 194,
+  "fillColorB": 204,
+  "obJS_API_Path": "widgets/OnBase",
+  "selectionType": "RECTANGLE",
+  "useWABSelectToolAutoUpdate": true,
+  "debugMode": false
+}

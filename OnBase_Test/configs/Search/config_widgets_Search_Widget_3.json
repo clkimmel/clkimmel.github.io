@@ -1,0 +1,366 @@
+{
+  "allPlaceholder": "",
+  "showInfoWindowOnSelect": true,
+  "sources": [
+    {
+      "layerId": "SewerCollectionNetwork_4362_12",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/12",
+      "name": "Sewer Aerials",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_11",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/11",
+      "name": "Sewer Casings",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_10",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/10",
+      "name": "Sewer Lateral Lines",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_9",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/9",
+      "name": "Sewer Force Mains",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_8",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/8",
+      "name": "Sewer Gravity Mains",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_7",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/7",
+      "name": "Sewer Meter Stations",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_6",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/6",
+      "name": "Sewer Cleanouts",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_3",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/3",
+      "name": "Sewer Manholes",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_2",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/2",
+      "name": "Sewer Control Valves",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_1",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/1",
+      "name": "Sewer System Valves",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "SewerCollectionNetwork_4362_0",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/SewerCollectionNetwork/MapServer/0",
+      "name": "Sewer Network Structures",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID",
+        "NAME"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_12",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/12",
+      "name": "Water Lateral Lines",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_11",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/11",
+      "name": "Tank Drain Lines",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_10",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/10",
+      "name": "Water Pressure Mains",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_8",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/8",
+      "name": "Water Network Structures",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_7",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/7",
+      "name": "Water Control Valves",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_6",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/6",
+      "name": "Water Sampling Stations",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_5",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/5",
+      "name": "Water Service Connections",
+      "placeholder": "",
+      "searchFields": [
+        "SP_ID",
+        "PREM_ID",
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_4",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/4",
+      "name": "Water System Valves",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "layerId": "WaterDistributionNetwork_8912_3",
+      "url": "https://mapstest.raleighnc.gov/arcgis/rest/services/RaleighWater/WaterDistributionNetwork/MapServer/3",
+      "name": "Water Hydrants",
+      "placeholder": "",
+      "searchFields": [
+        "FACILITYID"
+      ],
+      "displayField": "FACILITYID",
+      "exactMatch": false,
+      "searchInCurrentMapExtent": false,
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "type": "query"
+    },
+    {
+      "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+      "name": "ArcGIS World Geocoding Service",
+      "singleLineFieldName": "SingleLine",
+      "placeholder": "Find address or place",
+      "countryCode": "",
+      "panToScale": false,
+      "zoomScale": null,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "searchInCurrentMapExtent": false,
+      "enableLocalSearch": true,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000,
+      "radiusUnit": "meter",
+      "type": "locator"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+    "name": "OnBase",
+    "2D": true,
+    "3D": false,
+    "platform": "HTML",
+    "version": "19.0.0",
+    "author": "Hyland Software Inc",
+    "description": "OnBase widget",
+    "copyright": "Hyland Software Inc",
+    "license": "",
+    "wabVersion": "2.11",
+    "properties": {
+        "inPanel": true,
+        "hasLocale": true,
+        "hasStyle": true,
+        "hasConfig": true,
+        "hasUIFile": true,
+        "hasSettingPage": true,
+        "hasSettingUIFile": true,
+        "hasSettingLocale": true,
+        "hasSettingStyle": true,
+        "IsController": false,
+        "hasVersionManager": true
+    },
+    "groups": {
+        "widgets": [
+            {
+                "name":  "OnBase"
+            }
+        ],
+        "panel": {
+            "position": { "width": 500 }
+        }
+    },
+    "position": { "width":  500 }
+}
