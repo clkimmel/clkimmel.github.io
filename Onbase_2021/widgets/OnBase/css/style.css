@@ -1,0 +1,40 @@
+.obApiWidgetContainer
+{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.jimu-widget-OnBase
+{
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* #region Override WAB styling */
+.jimu-container.jimu-widget-frame
+{
+    padding: 6px !important;
+}
+/* #endregion */
+
+/* #region Override GIS Web API styling */
+.ob-clientSideFilter
+{
+    padding: 9px;
+}
+
+#ob_ResultsRow
+{
+    font-size: 13px !important;
+}
+
+#ob_docs_div p
+{
+    margin-left: 15px;
+}
+/* #endregion */
+

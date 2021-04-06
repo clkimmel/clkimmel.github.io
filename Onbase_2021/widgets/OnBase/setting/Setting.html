@@ -1,0 +1,53 @@
+<div style="width:100%;">
+  <div id="ob_div_working_settings"></div>
+  <table class="setting-table input-table" cellspacing="0">
+      <tbody>
+          <colgroup>
+              <col width="auto"></col>
+              <col width="auto"></col>
+              <col width="170px"></col>
+          </colgroup>
+          <tr>
+              <td class="first">${nls.serviceUrl}</td>
+              <td class="second">
+                  <input type="text" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="serviceUrlTextBox" onchange=""
+                         placeholder="${nls.urlPlaceHolder}" required="true" data-dojo-props='style:{width:"100%"}' />
+              </td>
+              <td>
+                  <div class="jimu-btn validate-btn jimu-float-trailing" style="visibility:hidden"
+                       data-dojo-attach-point="btnValidateObUrl" data-dojo-attach-event="onclick:_onBtnValidateOBClick">${nls.validate}</div>
+              </td>
+          </tr>
+          <tr style="visibility:collapse">
+              <td class="first">${nls.width}</td>
+              <td class="second">
+                  <input type="text" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="widthTextBox"
+                         placeholder="${nls.widthPlaceHolder}" disabled data-dojo-props='style:{width:"100%"}' />
+              </td>
+          </tr>
+          <tr>
+              <td class="first">${nls.portalWidgetApiPath}</td>
+              <td class="second">
+                  <input type="text" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="portalWidgetUrlTextBox"
+                         data-dojo-props='style:{width:"100%"}' placeholder="${nls.portalWidgetApiPathPlaceHolder}" />
+              </td>
+              <td></td>
+          </tr>
+          <tr>
+              <td class="first"></td>
+              <td class="second">
+                  ${nls.portalWidgetApiNote}
+              </td>
+              <td></td>
+          </tr>
+          <tr>
+              <td class="first">${nls.jsApiPath}</td>
+              <td class="second">
+                  <input type="text" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="jsApiPathTextBox"
+                         data-dojo-props='style:{width:"100%"}' placeholder="${nls.apiPathPlaceHolder}" disabled />
+              </td>
+              <td></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
