@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+<title>City of Raleigh Public Utilities GIS: Mapping Services</title>   
+
+<meta name="Home" content="This page is the main menu for PUGIS." /> 
+
+<!-- Main Style -->
+<link href="../css/main.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="../img/favicon.ico">
+
+<script src="https://js.arcgis.com/3.25/"></script>
+<script>
+  var map;
+
+  require(["esri/map", "dojo/domReady!"], function(Map) {
+	map = new Map("map", {
+	  basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+	  center: [-122.45, 37.75], // longitude, latitude
+	  zoom: 13
+	});
+  });
+</script>
+
+</head>
+
+
+<body>
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="pugis">
+        	<a id="goUp" href="#home-slider" title="City of Raleigh Public Utilities GIS">City of Raleigh Public Utilities GIS</a>
+        </div>
+        
+        <nav id="menu">
+        	<ul><h3>
+            	<a href="../../index.html">HOME</a>&nbsp;&nbsp;&nbsp;
+                <a href="analytics.html">ANALYTICS</a>&nbsp;&nbsp;&nbsp;
+				<a href="pugis.html">GIS MAPPING</a>&nbsp;&nbsp;&nbsp;
+				<div class="dropdown">
+					<span>RESOURCES</span>&nbsp;&nbsp;&nbsp;
+					<div class="dropdown-content">
+						<a href="staff.html">PUGIS Staff</a></br>					
+						<a href="https://maps.raleighnc.gov/imaps/?config=puma" target="_blank">PUMA</a></br>					
+						<a href="http://cityworks.raleighnc.gov/" target="_blank">City Works</a></br>
+						<a href="http://www.raleighnc.gov" target="_blank">City of Raleigh</a></br>
+						<a href="https://corecon.raleighnc.gov/" target="_blank">CORECON</a></br>
+						<a href="https://raleighnc.service-now.com/sp" target="_blank">IT Service Request</a></br>					
+						<a href="rest.html">REST Services</a></br>
+						<a href="http://www.wakegov.com" target="_blank">Wake County GIS</a></br>
+					</div>
+				</div>
+                <a href="applications.html">APPLICATIONS</a>&nbsp;&nbsp;&nbsp;
+                </h3></ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Our Work Section -->
+
+<!-- Programs Section -->
+<div class="puba">
+<center><div id="map" class="clear"></div></center>
+</div>
+
+<!-- End Programs Section -->
+<!-- Socialize -->
+<div id="social-area" class="page">
+	<div class="container">
+    	<div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="https://www.raleighnc.gov/" title="City of Raleigh Home Page" target="_blank"><img src="../img/COR.png"></a></li>
+                        <li><a href="https://corecon.raleighnc.gov/" title="CORECON" target="_blank"><img src="../img/CORECON.png"></a></li>
+                       
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Socialize -->
+
+<!-- Footer -->
+<footer>
+	<p class="credits">&copy;2018 City of Raleigh. All rights reserved.</a> 
+</footer>
+<!-- End Footer -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+
+<!-- Js -->
+
+<!-- End Js -->
+
+</body>
+</html>
