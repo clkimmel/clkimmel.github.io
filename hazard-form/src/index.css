@@ -1,0 +1,36 @@
+@import 'https://js.arcgis.com/4.31/@arcgis/core/assets/esri/themes/light/main.css';
+
+@import "@esri/calcite-components/dist/calcite/calcite.css";
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  margin:0;
+  --calcite-ui-brand: #417925;
+  --calcite-ui-brand-hover: #066a38;
+
+}
+
+.esri-view {
+  width: 1px;
+  height: 1px;
+}
+
+.esri-editor {
+  visibility: hidden;
+}
+
+.esri-editor {
+  width: 100%;
+  height: calc(100% - 82px);
+}
+
+.esri-editor__panel-toolbar {
+  display: none;
+}
+
+.header {
+  background-color: #417925;
+  padding: 1em;
+  height: 50px
+}
